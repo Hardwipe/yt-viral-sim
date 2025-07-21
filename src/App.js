@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import ViralDashboard from './components/ViralDashboard';
 import './App.css';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
       </header>
 
       <Analytics />
+      <SpeedInsights />
       {!started ? (
         <div className="upload-card">
           <input
