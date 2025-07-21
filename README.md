@@ -22,7 +22,7 @@ FakeTube is a fun and interactive YouTube viral simulator. Upload any video and 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/fake-tube.git
+git clone https://github.com/Hardwipe/yt-viral-sim.git
 cd fake-tube
 ```
 
