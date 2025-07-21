@@ -94,3 +94,11 @@ video {
   border-radius: 8px;
   margin-bottom: 20px;
 }
+.donation-button {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.donation-button img {
+  height: 40px;
+}
