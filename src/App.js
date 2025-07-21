@@ -33,6 +33,14 @@ function App() {
         <div className="brand-title">
           <span className="brand">FakeTube</span>
         </div>
+
+        <a href="https://www.buymeacoffee.com/FakeTube" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg"
+            alt="Buy Me A Coffee"
+            style={{ height: '40px', marginTop: '10px' }}
+          />
+        </a>
         <p className="tagline">World’s Most Realistic Viral Simulator</p>
       </header>
 
