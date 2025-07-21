@@ -42,7 +42,7 @@ function App() {
             style={{ height: '40px', marginTop: '10px' }}
           />
         </a>
-        <p className="tagline">World’s Most Realistic Viral Simulator</p>
+        <p className="tagline">World’s Most Realistic Virality Simulator</p>
       </header>
 
       <Analytics />
