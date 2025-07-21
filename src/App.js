@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import ViralDashboard from './components/ViralDashboard';
 import './App.css';
 
+
 function App() {
   const [videoTitle, setVideoTitle] = useState('');
   const [videoFile, setVideoFile] = useState(null);
@@ -30,7 +31,6 @@ function App() {
     <div className="app">
       <header className="header">
         <div className="brand-title">
-          <span className="play-icon">▶️</span>
           <span className="brand">FakeTube</span>
         </div>
         <p className="tagline">World’s Most Realistic Viral Simulator</p>

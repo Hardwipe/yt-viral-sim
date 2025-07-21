@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="41.336102mm"
+   height="28.888391mm"
+   viewBox="0 0 41.336102 28.888391"
+   version="1.1"
+   id="svg116"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   sodipodi:docname="faketube-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview118"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.76078844"
+     inkscape:cx="143.92963"
+     inkscape:cy="126.18488"
+     inkscape:window-width="2560"
+     inkscape:window-height="1080"
+     inkscape:window-x="1728"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs113" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-66.623519,-87.45393)">
+    <g
+       id="g8563">
+      <path
+         d="m 107.04239,91.97127 c -0.48154,-1.780646 -1.8706,-3.175 -3.65125,-3.65125 -2.39183,-0.923396 -25.558752,-1.375833 -32.279168,0.02646 -1.780646,0.481541 -3.175,1.870604 -3.65125,3.65125 -1.0795,4.736041 -1.161521,14.97541 0.02646,19.81729 0.481542,1.78064 1.870604,3.175 3.65125,3.65125 4.736042,1.09008 27.252084,1.24354 32.279168,0 1.78065,-0.48155 3.175,-1.87061 3.65125,-3.65125 1.15094,-5.15938 1.23296,-14.763749 -0.0265,-19.843749 z"
+         fill="#ff0000"
+         id="path200"
+         style="stroke-width:0.264583" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="73.764771"
+         y="107.96286"
+         id="text2368"><tspan
+           sodipodi:role="line"
+           id="tspan2366"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.264583"
+           x="73.764771"
+           y="107.96286">&lt;/&gt;</tspan></text>
+    </g>
+  </g>
+</svg>
