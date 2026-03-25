@@ -23,7 +23,7 @@ FakeTube is a fun and interactive YouTube viral simulator. Upload any video and 
 
 ```bash
 git clone https://github.com/Hardwipe/yt-viral-sim.git
-cd fake-tube
+cd yt-viral-sim
 ```
 
 ### Install Dependencies
@@ -35,8 +35,74 @@ npm install
 ### Run Locally
 
 ```bash
-npm start
+npm run dev
 ```
+
+---
+
+## 🧪 Running Tests
+
+FakeTube uses **Vitest + React Testing Library** for unit testing and coverage.
+
+### Run Tests (Watch Mode)
+
+```bash
+npm run test
+```
+
+### Run Tests Once
+
+```bash
+npm run test:run
+```
+
+### Generate Coverage Report
+
+```bash
+npm run coverage
+```
+
+---
+
+## 📊 Coverage Report
+
+After running coverage:
+
+- A `coverage/` folder will be generated
+- Open the report locally:
+
+```bash
+open coverage/index.html
+```
+
+This provides a full interactive breakdown of:
+- Statements
+- Branches
+- Functions
+- Lines
+
+---
+
+## ⚙️ CI / GitHub Actions
+
+Tests and coverage automatically run on:
+
+- Push to `main`
+- Pull requests into `main`
+
+The pipeline:
+- Installs dependencies
+- Builds the project
+- Runs coverage tests
+- Uploads the coverage report as an artifact
+
+### Viewing Coverage from CI
+
+1. Go to **GitHub → Actions**
+2. Click a workflow run
+3. Scroll to **Artifacts**
+4. Download `coverage-report`
+5. Open `index.html`
 
 ---
 
@@ -46,20 +112,32 @@ We welcome contributions! Here’s how to help:
 
 1. **Fork the repository.**
 2. **Create a new branch** for your feature or fix:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
+
 3. **Make your changes** and commit:
+
    ```bash
    git commit -m "Add feature: [your description]"
    ```
+
 4. **Push to your branch**:
+
    ```bash
    git push origin feature/your-feature-name
    ```
+
 5. **Open a Pull Request** describing your change.
 
-Please follow clear commit message guidelines and submit descriptive PRs.
+---
+
+## 🧠 Development Notes
+
+- Tests are located alongside components (e.g. `Component.test.jsx`)
+- Mocking is used for isolated testing of UI logic
+- Timers are controlled via `vi.useFakeTimers()` for deterministic simulations
 
 ---
 
@@ -76,4 +154,3 @@ If you enjoy using FakeTube, please consider donating via the button on the site
 ---
 
 *FakeTube is a satirical project and not affiliated with YouTube or Google.*
-

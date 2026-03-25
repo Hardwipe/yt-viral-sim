@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import CommentFeed from './CommentFeed';
-import LiveAnalyticsChart from './LiveAnalyticsChart';
+import CommentFeed from './CommentFeed.jsx';
+import LiveAnalyticsChart from './LiveAnalyticsChart.jsx';
 import './ViralDashboard.css';
-import { logEvent } from '../utils/eventLogger';
+import { logEvent } from '../utils/eventLogger.jsx';
 
 export default function ViralDashboard({ title, videoSrc, onStop }) {
   const [running, setRunning] = useState(true);

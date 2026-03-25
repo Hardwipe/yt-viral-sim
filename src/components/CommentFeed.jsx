@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { logEvent } from '../utils/eventLogger';
+import { logEvent } from '../utils/eventLogger.jsx';
 
 const hypeComments = [
   "This blew up fast!",
