@@ -23,9 +23,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm run coverage
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      - name: Run full pipeline
+        run: ./scripts/run-all.sh
         env:
           CI: true
 
