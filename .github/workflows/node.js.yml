@@ -43,7 +43,7 @@ jobs:
         run: chmod +x scripts/*.sh backend/scripts/*.sh
 
       - name: Run full pipeline
-        run: ./scripts/run_all.sh
+        run: ./scripts/run-all.sh
         env:
           CI: true
 
