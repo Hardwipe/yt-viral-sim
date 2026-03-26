@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 import App from './App';
@@ -22,14 +22,31 @@ vi.mock('./components/ViralDashboard', () => ({
 
 describe('App', () => {
   const originalCreateObjectURL = URL.createObjectURL;
+  const originalRevokeObjectURL = URL.revokeObjectURL;
+  const originalFetch = global.fetch;
 
   beforeEach(() => {
     vi.clearAllMocks();
+
     URL.createObjectURL = vi.fn(() => 'blob:mock-video-url');
+    URL.revokeObjectURL = vi.fn();
+
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            message: 'Upload received. Background YouTube job started.',
+            detected_upload_type: 'shorts',
+          }),
+      })
+    );
   });
 
   afterEach(() => {
     URL.createObjectURL = originalCreateObjectURL;
+    URL.revokeObjectURL = originalRevokeObjectURL;
+    global.fetch = originalFetch;
   });
 
   it('renders initial upload UI', () => {
@@ -91,6 +108,8 @@ describe('App', () => {
     });
 
     expect(URL.createObjectURL).toHaveBeenCalledWith(file);
+    expect(screen.getByText(/selected:/i)).toBeInTheDocument();
+    expect(screen.getByText('demo.mp4')).toBeInTheDocument();
   });
 
   it('enables start simulation only after title and file are provided', () => {
@@ -128,7 +147,7 @@ describe('App', () => {
     ).toBeDisabled();
   });
 
-  it('starts simulation and renders ViralDashboard with correct props', () => {
+  it('starts simulation and renders ViralDashboard with correct props', async () => {
     render(<App />);
 
     const titleInput = screen.getByPlaceholderText(/enter fake video title/i);
@@ -142,14 +161,23 @@ describe('App', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /start simulation/i }));
 
-    expect(screen.getByTestId('viral-dashboard')).toBeInTheDocument();
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledWith(
+      '/api/upload',
+      expect.objectContaining({
+        method: 'POST',
+        body: expect.any(FormData),
+      })
+    );
+
+    expect(await screen.findByTestId('viral-dashboard')).toBeInTheDocument();
     expect(screen.getByText('Dashboard Title: Test Video')).toBeInTheDocument();
     expect(
       screen.getByText('Dashboard Src: blob:mock-video-url')
     ).toBeInTheDocument();
   });
 
-  it('resets simulation when ViralDashboard calls onStop', () => {
+  it('resets simulation when ViralDashboard calls onStop', async () => {
     render(<App />);
 
     const titleInput = screen.getByPlaceholderText(/enter fake video title/i);
@@ -163,9 +191,13 @@ describe('App', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /start simulation/i }));
 
-    expect(screen.getByTestId('viral-dashboard')).toBeInTheDocument();
+    expect(await screen.findByTestId('viral-dashboard')).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /mock stop/i }));
+
+    await waitFor(() => {
+      expect(screen.queryByTestId('viral-dashboard')).not.toBeInTheDocument();
+    });
 
     expect(
       screen.getByPlaceholderText(/enter fake video title/i)
@@ -173,6 +205,33 @@ describe('App', () => {
     expect(
       screen.getByRole('button', { name: /start simulation/i })
     ).toBeDisabled();
+    expect(screen.getByPlaceholderText(/enter fake video title/i)).toHaveValue('');
+    expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:mock-video-url');
+  });
+
+  it('shows an upload error when backend upload fails', async () => {
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: false,
+        json: () => Promise.resolve({ error: 'Upload failed' }),
+      })
+    );
+
+    render(<App />);
+
+    const titleInput = screen.getByPlaceholderText(/enter fake video title/i);
+    const fileInput = document.querySelector('input[type="file"]');
+    const file = new File(['video'], 'demo.mp4', { type: 'video/mp4' });
+
+    fireEvent.change(titleInput, { target: { value: 'Test Video' } });
+    fireEvent.change(fileInput, {
+      target: { files: [file] },
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: /start simulation/i }));
+
+    expect(await screen.findByText(/upload failed/i)).toBeInTheDocument();
+    expect(screen.queryByTestId('viral-dashboard')).not.toBeInTheDocument();
   });
 
   it('renders the buy me a coffee link correctly', () => {

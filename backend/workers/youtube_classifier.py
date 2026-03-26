@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from workers.media_inspector import inspect_video
+from backend.workers.media_inspector import inspect_video
 
 SHORTS_MAX_SECONDS = 180.0  # 3 minutes
 
