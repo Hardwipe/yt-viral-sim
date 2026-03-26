@@ -1,7 +1,8 @@
 {
   "name": "fake-yt-viral-simulator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "proxy": "http://localhost:5050",
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "react": "^18.2.0",

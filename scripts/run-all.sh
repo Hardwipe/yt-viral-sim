@@ -24,12 +24,12 @@ run_step () {
   fi
 }
 
-# Ordered execution (edit this order however you want)
 run_step "Install Dependencies" "scripts/install.sh"
 run_step "Lint" "scripts/lint.sh"
 run_step "Unit Tests" "scripts/test.sh"
 run_step "Coverage" "scripts/coverage.sh"
 run_step "Build" "scripts/build.sh"
+run_step "Backend Smoke Test" "scripts/backend-smoke.sh"
 
 echo ""
 echo "🎉 All steps completed successfully!"
