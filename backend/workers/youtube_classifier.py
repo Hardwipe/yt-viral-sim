@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from backend.workers.media_inspector import inspect_video
+from .media_inspector import inspect_video
 
-SHORTS_MAX_SECONDS = 180.0  # 3 minutes
+SHORTS_MAX_SECONDS = 180.0
 
 
 def classify_for_youtube(video_path: str) -> dict:
