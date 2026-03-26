@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Running tests with coverage..."
-npx vitest run --coverage
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
+
+echo "Running coverage..."
+npm run coverage
