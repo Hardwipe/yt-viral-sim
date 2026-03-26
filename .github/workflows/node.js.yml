@@ -37,7 +37,7 @@ jobs:
       - name: Install ffmpeg
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y ffmpeg -qq
 
       - name: Make scripts executable
         run: chmod +x scripts/*.sh backend/scripts/*.sh
